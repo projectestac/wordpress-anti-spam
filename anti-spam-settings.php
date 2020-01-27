@@ -59,7 +59,18 @@ function antispam_field_save_spam_comments_callback() {
 
 function antispam_settings() {
 	$antispam_stats = get_option('antispam_stats', array());
-	$blocked_total = $antispam_stats['blocked_total'];
+
+    // XTEC ************ MODIFICAT - Check index
+    // 2020.01.27 @nacho
+    if (isset($antispam_stats['blocked_total'])) {
+        $blocked_total = $antispam_stats['blocked_total'];
+    }
+    //************ ORIGINAL
+    /*
+    $blocked_total = $antispam_stats['blocked_total'];
+    */
+    //************ FI
+
 	if (empty($blocked_total)) {
 		$blocked_total = 0;
 	}
